@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import type { ICartProductItemProps } from "@/types";
+import type { ICartProductItemProps, ICartProductItemEmits } from "@/types";
+
 defineProps<ICartProductItemProps>();
+const emits = defineEmits<ICartProductItemEmits>();
 </script>
 
 <template>
@@ -17,8 +19,9 @@ defineProps<ICartProductItemProps>();
         </h5>
       </div>
     </div>
-    <div class="flex justify-end pr-10">
+    <div class="flex flex-col items-end pr-10">
       <h6 class="text-indigo-600 font-manrope text-2xl leading-9">{{ price }}</h6>
+      <p @click="emits('delete', productId)" class="text-red-600 cursor-pointer">delete</p>
     </div>
   </div>
 </template>

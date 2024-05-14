@@ -96,7 +96,12 @@ export interface IProductItemProps {
 
 // CartProductItem.vue
 export interface ICartProductItemProps {
+  productId: number;
   imageUrl: string;
   name: string;
   price: string;
 }
+
+export type ICartProductItemEmits = {
+  delete: [productId: number];
+};

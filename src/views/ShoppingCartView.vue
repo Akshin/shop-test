@@ -24,7 +24,9 @@ function placeOrder() {
       </div>
       <CartProductItem
         v-for="product in cartStore.cartProducts"
+        @delete="cartStore.removeProduct(product.id)"
         :key="product.id"
+        :productId="product.id"
         :imageUrl="product.thumbnailUrl"
         :name="product.name"
         :price="product.defaultDisplayedPriceFormatted"
